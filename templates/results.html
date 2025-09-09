@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-box {
+            width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4285f4;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .result {
+            margin-bottom: 20px;
+        }
+        .result h3 {
+            margin: 0;
+        }
+        .result a {
+            text-decoration: none;
+            color: #1a0dab;
+        }
+        .result p {
+            margin-top: 5px;
+            color: #4d5156;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="q" class="search-box" value="{{ query }}">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+
+        {% for result in results %}
+            <div class="result">
+                <h3><a href="{{ result.url }}">{{ result.title }}</a></h3>
+                <p>{{ result.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
