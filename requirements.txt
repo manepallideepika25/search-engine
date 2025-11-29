@@ -1,2 +1,6 @@
 Flask
 nltk
+selenium
+beautifulsoup4
+scikit-learn
+requests
